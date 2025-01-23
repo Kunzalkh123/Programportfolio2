@@ -1,6 +1,6 @@
 class VendingMachine:
-    def __init__(self):
-        self.__Items = {
+    def __init__(self):# initialises 2 elements 
+        self.__Items = {# the menu of items available
             "Drinks": {
                 'Drink1': {"Type": "Coca Cola", "Price": 4.65},
                 'Drink2': {"Type": "Orange Juice", "Price": 2.21},
@@ -30,7 +30,7 @@ class VendingMachine:
             except ValueError:
                 print("Invalid input. Please enter a valid amount.")
 
-    def choice(self):
+    def choice(self): # allows users to select the item they want
         print("Available Items:")
         for category, items in self.__Items.items():
             print(f"{category}:")
@@ -51,14 +51,14 @@ class VendingMachine:
                         return False
             print("Invalid item code. Please try again.")
 
-    def additional_items(self):
+    def additional_items(self): # this gives suggestions to the users if they want more items
         while True:
             choice = input("Would you like to purchase another item? (yes/no): ").strip().lower()
             if choice in ["yes", "no"]:
                 return choice == "yes"
             print("Invalid input. Please enter 'yes' or 'no'.")
 
-    def change(self):
+    def change(self):# tells them the change they will recieve 
         if self.__Balance > 0:
             print(f"The balance to be returned is: AED {self.__Balance:.2f}")
             self.__Balance = 0
@@ -79,6 +79,6 @@ class VendingMachine:
             break
 
 
-# Run the vending machine
+# call the vending machine
 vm = VendingMachine()
 vm.run()
